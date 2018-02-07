@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+
+        body{
+            background-image: url('https://source.unsplash.com/1600x1200');
+            background-size: cover;
+            min-height:100vh;
+            display:flex;
+            flex:1;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+
+        :root{
+            --base:rgba(20,20,20,0.5);
+            --base2:rgba(20,20,20,0.6);
+        }
+    
+.inputform{
+    width: 500px;
+    line-height: 64px;
+    position: relative;
+    overflow: hidden;
+    color:var(--base);
+
+}
+
+.inputform:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: url('https://source.unsplash.com/600x200');
+    opacity: 0.6    
+}
+input{
+    width: 100%;
+    height: 100%;
+    line-height: 64px;
+    height:64px;
+    font-size:48px;
+    padding: 15px;
+    overflow: hidden;
+    
+}
+
+    ul{
+        background:var(--base);
+        width:500px;
+        height:100vh;
+    }
+
+    li{
+        background: var(--base2);
+        margin:20px;
+        height:36px;
+        font-size: 18px;
+    }
+    
+    </style>
+</head>
+<body>
+    
+    <div class="inputform">
+
+            <input type="text">
+
+    </div>
+
+    
+    <ul>
+        
+        <li>
+        
+    </li></ul>
+</body>
+</html>

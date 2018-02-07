@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="digitalclock"></div>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
+        </div>
+    </div>
+
+<style>
+    html{
+        background: #018DED url(https://picsum.photos/1500/1000/?blur);
+        background-size:cover;
+        font-family:'helveticaneue';
+        text-align:center;
+        font-size:10px;
+    }
+
+    body{
+        display:flex;
+        flex:1;
+        min-height:100vh;
+        margin:0;
+        align-items:center;
+        font-size:2rem;
+    }
+
+    .digitalclock{
+        width:30%;
+        height:100px;
+        background: rgba(0,0,0,0.2);
+        position:absolute;
+        top:10%;
+        left:20%;
+        /* margin:50px auto; */
+        color:white;
+        font-size:24px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align:center;
+        line-height:100px;
+        transition:all 2s;
+        transition-timing-function: cubic-bezier(0.5, 2.7, 0.58, 1);
+    }
+
+    .clock{
+        width:30rem;
+        height:30rem;
+        border:20px solid white;
+        border-radius: 50%;
+        position: relative;
+        margin:50px auto;
+        padding:2rem;
+        box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform:translateY(-3px);
+        /* background:rgba(20, 22, 128, 0.5) */
+
+    }
+
+    .hand{
+        position: absolute;
+        
+        width:6px;
+        top:50%;
+        left:50%;
+        background:white;
+        /* transform: rotate(180deg); */
+        transform-origin:50% 0%;
+        transition: all 0.05s;
+
+        transition-timing-function: cubic-bezier(0.5, 2.7, 0.58, 1);
+        
+    }
+
+    .hour-hand{
+        height:30%;
+        /* width:10px; */
+        
+    }
+
+    .min-hand{
+        height:40%;
+
+    }
+
+    .second-hand{
+        height:50%;
+        /* width:3px; */
+        
+    }
+
+
+
+
+
+</style>
+
+</body>
+
+<script>
+
+    var mzhen = document.querySelector('.second-hand');
+    var fzhen = document.querySelector('.min-hand');
+    var szhen = document.querySelector('.hour-hand');
+    var dc = document.querySelector('.digitalclock');
+  
+ 
+    var setTime = function(){
+    var date = new Date();
+        
+        var m = date.getSeconds();
+        var f = date.getMinutes();
+        var s = date.getHours();
+        mzhen.style.transform = `rotateZ(${m*360/60+180}deg)`;
+        console.log(m)
+        fzhen.style.transform = `rotateZ(${f*360/60+(m/60)*6+180}deg)`;
+        szhen.style.transform = `rotateZ(${s*5*360/60+(f/60)*30+180}deg)`;
+        dc.innerHTML = `${s}点${f}分${m}秒`;
+    }
+
+    var pageWidth = document.body.clientWidth;
+    var pageHeight = document.body.clientHeight;
+
+    var moveDc = function(){
+
+        var randomX = pageWidth*Math.random();
+        var randomY = pageHeight*Math.random();
+        dc.style.left = `${randomX}px`;
+        dc.style.top = `${randomY}px`;
+
+    }
+
+
+    setInterval(setTime,1000)
+    setInterval(moveDc,1000)
+    
+
+
+</script>
+</html>
